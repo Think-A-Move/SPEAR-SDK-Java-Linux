@@ -1,6 +1,6 @@
 # Build Instructions for SpearSdkExample Desktop Application
 
-SpearSdkExample desktop application needs to be built using the JavaFX widget toolkit, e(fx)clipse IDE.
+SpearSdkExample desktop application needs to be built using the JavaFX widget toolkit and e(fx)clipse IDE.
 
 ## Install Java:
 
@@ -16,9 +16,7 @@ Most Linux distributions come pre-installed with OpenJRE 8 which is sufficient t
 $ apt install openjdk-8-jdk
 ```
 
-#### Install Oracle JDK 8:
-
-On Ubuntu 16.04 LTS, You need to install Oracle Java SE 8 to build the application. The deployable package (.deb) fails to launch JVM with OpenJDK.
+For Ubuntu 16.04 LTS, You need to install Oracle Java SE 8 to build the application. The deployable package (.deb) fails to launch JVM with OpenJDK.
 
 See https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04 to install Oracle JDK 8 and change its default Java version.
 
@@ -27,6 +25,8 @@ $ sudo add-apt-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt-get install oracle-java8-installer
 ```
+
+For Ubuntu 20.04. You need to install Oracle Java SE 8 to build the application. Oracle JDK 8 can be downloaded [here](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html).
 
 ### Set Default Java:
 
@@ -88,21 +88,29 @@ $ source /etc/environment
 You can now test whether the environment variable has been set by executing the following command:
 
 ```bash
-echo $JAVA_HOME
+$ echo $JAVA_HOME
 ```
 
 ## Install JavaFX:
+
+If you're using Oracle JAVA SE 8, you don't need to install JavaFX separately as it already contains JavaFX package.
 
 ### On Linux Mint/Ubuntu:
 
 Run the following command if you're using OpenJDK:
 
+For Ubuntu 18.04:
 ```bash
-apt install openjfx
+$ apt purge openjfx
+$ apt install openjfx=8u161-b12-1ubuntu2 libopenjfx-jni=8u161-b12-1ubuntu2 libopenjfx-java=8u161-b12-1ubuntu2
+$ apt-mark hold openjfx libopenjfx-jni libopenjfx-java
 ```
 
-If you're using Oracle JAVA SE 8, you don't need to install JavaFX separately as it already contains JavaFX package.
+For Ubuntu 16.04:
 
+```bash
+$ apt install openjfx
+```
 
 ## e(fx)clipse:
 
@@ -111,6 +119,8 @@ To build, you'll need to install e(fx)clipse, a variant of Eclipse with plugins 
 1. Download the "all-in-one" solution from http://efxclipse.bestsolution.at/install.html#all-in-one
 2. "Install" e(fx)clipse by simply unzipping the downloaded file.
 3. Run the `eclipse` executable to open eclipse
+4. Click File -> Open Projects form File System...
+5. Enter location of SpearSdkExample project. 
 
 ### Change Execution Environment:
 
@@ -118,29 +128,12 @@ To build, you'll need to install e(fx)clipse, a variant of Eclipse with plugins 
 
 To change Execution Environment to use Oracle JRE in Eclipse if it was already setup with OpenJDK
 
-1. Eclipse -> Preferences -> Java -> Installed JRE 
+1. Click Window -> Preferences -> Java -> Installed JREs 
 2. Click Add
 3. Add Oracle JRE path (“/usr/lib/jvm/java-8-oracle”)
-4. Right click the project -> Properties -> Java Build Path -> Libraries -> Select JRE System Library -> Click Edit and update Execution Environment to be Oracle JRE
-
-
-## Add SpearSdk Dependency:
-
-### On Linux:
-
-1. Add new SpearSdk-<version>.jar to SpearSdkExample/lib folder
-2. Right-click on the SpearSdkExample project in Eclipse
-3. Choose Properties
-4. Select Java Build Path from the left pan
-5. Select the Libraries tab from the right pan
-6. Click Add JARs...
-7. Select SpearSdkExample -> lib -> SpearSdk-<version>.jar from the JAR Selection widow.
-8. Select OK
-9. Select the old SpearSdk jar file in the Libraries tab
-10. Click the Remove button
-11. Click Apply
-12. Click OK
-
+4. Right click the SpearSdkExample project -> Properties -> Java Build Path
+5. Click Libraries -> Select JRE System Library 
+6. Click Edit and update Execution Environment to be Oracle JRE
 
 ## Build in Eclipse:
 
