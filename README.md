@@ -16,10 +16,6 @@ By cloning this repository and downloading SPEAR-SDK library you agree to the [S
 
 - SpearSdkExample is an example JavaFx app that demonstrates how to integrate our SPEAR-SDK library and language model with JavaFx applications
 
-## How to build SpearSdkExample:
-
-SpearSdkExample desktop application needs to be built using the JavaFX widget toolkit, e(fx)clipse IDE. See [Build Instruction](./SpearSdkExample/README.md) for more details.
-
 ## Features
 - Noise-robust DNN-Based Acoustic Model
 - Noise-robust DNN-Based VAD Model
