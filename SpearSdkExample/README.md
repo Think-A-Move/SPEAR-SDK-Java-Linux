@@ -1,6 +1,7 @@
 # Build Instructions for SpearSdkExample Desktop Application
 
 SpearSdkExample desktop application needs to be built using the JavaFX widget toolkit and e(fx)clipse IDE.
+This instructions were validated on Linux Mint 20.1.
 
 ## Install Java:
 
@@ -8,11 +9,8 @@ The SpearSdkExample application requires Java 8. Most Linux distributions come p
 
 ### Install OpenJDK 8:
 
-#### On Linux Mint 20.1:
-
-Download jdk-8u291-linux-x64.tar.gz from https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.htm
-
-Run the following commands:
+1. Download jdk-8u291-linux-x64.tar.gz from https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.htm
+2. Run the following commands:
 ```bash
 $ sudo tar -xvzf jdk-8u291-linux-x64.tar.gz
 $ sudo mkdir /opt/jdk
@@ -24,10 +22,7 @@ $ sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/opt/jdk/jdk1.8
 
 ### Set Default Java:
 
-#### On Linux Mint 20.1:
-
-Run the following command to make Oracle Java as default.
-
+1. Run the following command to make Oracle Java as default.
 ```bash
 $ sudo update-alternatives --config java
 
@@ -41,9 +36,7 @@ There are 2 choices for the alternative java (providing /usr/bin/java).
 
 Press <enter> to keep the current choice[*], or type selection number: 1
 ```
-
-Verify that it worked by checking the version.  Expected results:
-
+2. Verify that it worked by checking the version.  Expected results:
 ```bash
 $ java -version
 java version "1.8.0_291"
@@ -53,34 +46,23 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.291-b10, mixed mode)
 
 ### Set JAVA_HOME Environment variable:
 
-#### On Linux Mint 20.1:
-
-Run the following command and copy the path from your Java installation. 
-
+1. Run the following command and copy the path from your Java installation. 
 ```bash
 $ sudo update-alternatives --config java
 ```
-
-Open `/etc/environment` using nano or your favorite text editor.
-
+2. Open `/etc/environment` using nano or your favorite text editor.
 ```bash
 $ sudo nano /etc/environment
 ```
-
-At the end of this file, add the following line, making sure to replace the highlighted path with your own copied path.
-
+3. At the end of this file, add the following line, making sure to replace the highlighted path with your own copied path.
 ```bash
 JAVA_HOME="/opt/jdk/jdk1.8.0_291/bin/java"
 ```
-
-Save and exit the file, and reload it.
-
+4. Save and exit the file, and reload it.
 ```bash
 $ source /etc/environment
 ```
-
-You can now test whether the environment variable has been set by executing the following command:
-
+5. You can now test whether the environment variable has been set by executing the following command:
 ```bash
 $ echo $JAVA_HOME
 ```
@@ -132,5 +114,5 @@ To run the installed application from the command line, use this command:
 $ /opt/SpearSdkExample/SpearSdkExample
 ```
 
-OR you can find it in your application browser and click on it.
+Or you can find it in your application browser and click on it.
 
