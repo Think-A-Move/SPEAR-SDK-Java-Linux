@@ -67,7 +67,7 @@ $ source /etc/environment
 $ echo $JAVA_HOME
 ```
 
-## e(fx)clipse:
+## Install e(fx)clipse:
 
 To build, you'll need to install e(fx)clipse, a variant of Eclipse with plugins specialized for working with JavaFX applications.
 
@@ -108,11 +108,13 @@ $ sudo dpkg -i <package>.deb
 
 ## Run Installed Package:
 
-To run the installed application from the command line, use this command:
+1. Run the installed application from the command line with this command:
 
 ```bash
 $ /opt/SpearSdkExample/SpearSdkExample
 ```
 
-Or you can find it in your application browser and click on it.
+OR 
+
+2. Find it in your application browser and click on it.
 
